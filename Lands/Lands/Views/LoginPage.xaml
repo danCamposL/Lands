@@ -1,12 +1,10 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Lands.Views.LoginPage"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Title="Login">
-
     <ContentPage.Content>
-
         <ScrollView>
 
             <StackLayout Padding="10,20,10,5">
@@ -49,6 +47,9 @@
                         Placeholder="Ingresa tu Contraseña">
                     </Entry>
                 </Grid>
+                <ActivityIndicator>
+                </ActivityIndicator>
+
                 <StackLayout
                 Orientation="Horizontal">
                     <Label
@@ -60,9 +61,12 @@
                         HorizontalOptions="End">
                     </Switch>
                 </StackLayout>
-
-                <ActivityIndicator>
-                </ActivityIndicator>
+                <Label 
+                    HorizontalOptions="Center"
+                    Text="¿Olvidaste tu contraseña?"
+                    TextColor="Blue">
+                    
+                </Label>
                 <StackLayout
                 Margin="40,0">
                     <Button
@@ -97,6 +101,5 @@
                 </StackLayout>
             </StackLayout>
         </ScrollView>
-
     </ContentPage.Content>
 </ContentPage>
