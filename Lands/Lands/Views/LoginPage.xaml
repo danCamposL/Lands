@@ -3,23 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Lands.Views.LoginPage"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
-             Title="Login">
+             Title="Lands">
     <ContentPage.Content>
         <ScrollView>
 
-            <StackLayout Padding="10,20,10,5">
-
-                <Label 
-                    FontAttributes="Bold"
-                    FontSize="Large"
-                    HorizontalOptions="Center"
-                    Text="Tortillería del Valle">
-                </Label>
+            <StackLayout Padding="5">
                 <Image
                     Source="DelValle_logo.png"
                     WidthRequest="200">
                 </Image>
-                <Grid Margin="0,20">
+                <Grid
+                    Margin="10,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="2*"/>
@@ -27,7 +21,8 @@
                     <Label 
                         Grid.Row="0"
                         Grid.Column="0"
-                        Text="Usuario">
+                        Text="Usuario"
+                        VerticalOptions="Center">
                     </Label>
                     <Entry
                         Grid.Row="0"
@@ -38,7 +33,8 @@
                     <Label 
                         Grid.Row="1"
                         Grid.Column="0"
-                        Text="Contraseña">
+                        Text="Contraseña"
+                        VerticalOptions="Center">
                     </Label>
                     <Entry
                         Grid.Row="1"
@@ -51,7 +47,8 @@
                 </ActivityIndicator>
 
                 <StackLayout
-                Orientation="Horizontal">
+                    Margin="10,0"
+                    Orientation="Horizontal">
                     <Label
                         HorizontalOptions="StartAndExpand"
                         Text="Guardar Credenciales"
@@ -68,17 +65,20 @@
                     
                 </Label>
                 <StackLayout
-                Margin="40,0">
+                    Margin="40,0"
+                    Orientation="Horizontal">
                     <Button
                         BackgroundColor="Navy"
                         BorderRadius="23"
                         HeightRequest="46"
+                        HorizontalOptions="FillAndExpand"
                         Text="Login"
                         TextColor="White">
                     </Button>
                     <Button
                         BackgroundColor="Navy"
                         BorderRadius="60"
+                        HorizontalOptions="FillAndExpand"
                         Text="Regístrate"
                         TextColor="White">
                     </Button>
