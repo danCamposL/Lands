@@ -5,7 +5,8 @@
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Title="Lands">
     <ContentPage.Content>
-        <ScrollView>
+        <ScrollView
+            BindingContext="{Binding Login}">
 
             <StackLayout Padding="5">
                 <Image
@@ -29,6 +30,7 @@
                         Grid.Row="0"
                         Grid.Column="1"
                         Keyboard="Email"
+                        Text="{Binding User, Mode=TwoWay}"
                         Placeholder="Ingresa tu Usuario">
                     </Entry>
                     <Label 
@@ -41,12 +43,13 @@
                         Grid.Row="1"
                         Grid.Column="1"
                         IsPassword="True"
+                        Text="{Binding Password, Mode=TwoWay}"
                         Placeholder="Ingresa tu Contraseña">
                     </Entry>
                 </Grid>
                 <ActivityIndicator
+                    IsRunning="{Binding IsRunning, Mode=TwoWay}"
                     VerticalOptions="CenterAndExpand">
-                    
                 </ActivityIndicator>
 
                 <StackLayout
@@ -54,12 +57,13 @@
                     Orientation="Horizontal"
                     VerticalOptions="CenterAndExpand">
                     <Label
-                        HorizontalOptions="StartAndExpand"
+                        HorizontalOptions="StartAndExpand"                       
                         Text="Guardar Credenciales"
                         VerticalOptions="Center">
                     </Label>
                     <Switch
-                        HorizontalOptions="End">
+                        HorizontalOptions="End"
+                        IsToggled="{Binding IsRemembered, Mode=TwoWay}">
                     </Switch>
                 </StackLayout>
                 <Label 
@@ -75,6 +79,7 @@
                     <Button
                         BackgroundColor="Navy"
                         BorderRadius="23"
+                        Command="{Binding LoginCommand}"
                         HeightRequest="46"
                         HorizontalOptions="FillAndExpand"
                         Text="Login"
