@@ -3,6 +3,8 @@
     using GalaSoft.MvvmLight.Command;
     using System;
     using System.Windows.Input;
+    using Xamarin.Forms;
+
     class LoginViewModel
     {
         #region Properties
@@ -40,9 +42,25 @@
             }
         }
 
-        private void Login()
+        private async void Login()
         {
-            
+            if(string.IsNullOrEmpty(this.User))
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    "Debes ingresar un usuario",
+                    "Aceptar");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(this.Password))
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    "Debes ingresar una contraseña",
+                    "Aceptar");
+                return;
+            }
         }
         #endregion
 
