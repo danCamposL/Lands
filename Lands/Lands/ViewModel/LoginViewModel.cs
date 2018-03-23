@@ -1,12 +1,19 @@
 ﻿namespace Lands.ViewModel
 {
     using GalaSoft.MvvmLight.Command;
-    using System;
+    using Lands.ViewModels;
     using System.Windows.Input;
     using Xamarin.Forms;
 
-    class LoginViewModel
+    class LoginViewModel : BaseViewModel
     {
+
+        #region Attributes
+        private string password;
+        private bool isRunning;
+        private bool isEnabled;
+        #endregion
+
         #region Properties
         public string User
         {
@@ -16,20 +23,44 @@
 
         public string Password
         {
-            get;
-            set;
+            get
+            {
+                return this.password;
+            }
+            set
+            {
+                SetValue(ref this.password, value); 
+            }
         }
 
         public bool IsRunning
         {
-            get;
-            set;
+            get
+            {
+                return this.isRunning;
+            }
+            set
+            {
+                SetValue(ref this.isRunning, value);
+            }
         }
 
         public bool IsRemembered
         {
             get;
             set;
+        }
+
+        public bool IsEnabled
+        {
+            get
+            {
+                return this.isEnabled;
+            }
+            set
+            {
+                SetValue(ref this.isEnabled, value);
+            }
         }
         #endregion
 
@@ -44,7 +75,7 @@
 
         private async void Login()
         {
-            if(string.IsNullOrEmpty(this.User))
+            if (string.IsNullOrEmpty(this.User))
             {
                 await Application.Current.MainPage.DisplayAlert(
                     "Error",
@@ -61,6 +92,30 @@
                     "Aceptar");
                 return;
             }
+
+            this.IsRunning = true;
+            this.IsEnabled = false;
+
+            if (this.User != "dan" || this.Password != "1234")
+            {
+                this.IsRunning = false;
+                this.IsEnabled = true;
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    "Usuario o Contraseña incorrectos",
+                    "Aceptar");
+                this.Password = string.Empty;
+                return;
+            }
+
+            this.IsRunning = true;
+            this.IsEnabled = false;
+
+            await Application.Current.MainPage.DisplayAlert(
+                    "Ok",
+                    "Correcto",
+                    "Aceptar");
+            return;
         }
         #endregion
 
@@ -68,6 +123,7 @@
         public LoginViewModel()
         {
             this.IsRemembered = true;
+            this.IsEnabled = true;
         }
 
         #endregion

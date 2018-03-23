@@ -82,6 +82,7 @@
                         Command="{Binding LoginCommand}"
                         HeightRequest="46"
                         HorizontalOptions="FillAndExpand"
+                        IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
                         Text="Login"
                         TextColor="White"
                         VerticalOptions="CenterAndExpand">
@@ -90,6 +91,7 @@
                         BackgroundColor="Navy"
                         BorderRadius="60"
                         HorizontalOptions="FillAndExpand"
+                        IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
                         Text="Regístrate"
                         TextColor="White"
                         VerticalOptions="CenterAndExpand">
